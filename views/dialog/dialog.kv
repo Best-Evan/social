@@ -1,0 +1,79 @@
+<DialogMessage>:
+    adaptive_height: True
+    text_container: txt_cont
+    size_hint: 0.7, None
+    msg_text: "asdfasdfasdfasdfasdf"
+    is_mine: False
+    pos_hint: {"left": 1} if root.is_mine else {"right": 1}
+    MDBoxLayout:
+        adaptive_height: True
+        id: txt_cont
+        default_size_hint: 0.7, None
+        orientation: "vertical"
+        padding: 20, 40, 20, 40
+        adaptive_height: True
+        canvas.before:
+            Color:
+                rgba: app.theme_cls.primary_light
+            RoundedRectangle:
+                size: self.size
+                pos: self.pos
+                radius: [0, 50, 50, 50] if root.is_mine else [50, 0, 50, 50]
+        MDLabel:
+            id: msg_text
+            text_color: "black"
+            text: root.msg_text
+            text_size: self.width, None
+            size_hint: 1, None
+            height: self.texture_size[1]
+
+<DialogScreen>:
+    message_container: msg_cont
+    text_field: txt_field
+    scroll_view: scroll_view
+    MDBoxLayout:
+        orientation: "vertical"
+        MDBoxLayout:
+            size_hint: 1, 0.1
+            md_bg_color: app.theme_cls.primary_dark
+            MDIconButton:
+                icon: "arrow-left"
+                theme_text_color: "Custom"
+                text_color: app.theme_cls.primary_light
+                on_press: root.close_dialog()
+        ScrollView:
+            id: scroll_view
+            on_scroll_stop: root.update_scroll()
+            MDBoxLayout:
+                id: msg_cont
+                spacing: 20
+                adaptive_height: True
+                orientation: "vertical"
+        MDBoxLayout:
+            spacing: 10
+            size_hint: 1, None
+            adaptive_height: True
+            padding: 20
+            MDBoxLayout:
+                adaptive_height: True
+                canvas:
+                    Color:
+                        rgba: app.theme_cls.primary_dark
+                    Rectangle:
+                        size: self.size
+                        pos: self.pos[0] - 10, self.pos[1] - 10
+                MDTextFieldRect:
+                    id: txt_field
+                    mode: "rectangle"
+                    background_color: app.theme_cls.primary_light
+                    multiline: True
+                    size_hint_y: None
+                    max_height: 60
+            MDBoxLayout:
+                size_hint_x: 0.3
+                MDBoxLayout:
+                MDIconButton:
+                    icon: "send"
+                    user_font_size: 30
+                    on_press: root.send_message()
+                MDBoxLayout:

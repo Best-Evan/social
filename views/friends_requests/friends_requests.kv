@@ -1,0 +1,20 @@
+<Requests>:
+    pfp:pfp
+    on_press: root.show_profile()
+    ImageLeftWidget:
+        id: pfp
+<NewRecycleContainer>:
+
+<ResyView>:
+    viewclass: "Requests"
+    NewRecycleContainer:
+        spacing: 10
+        default_size: None, dp(56)
+        default_size_hint: 1, None
+        size_hint_y: None
+        height: self.minimum_height
+        orientation: 'vertical'
+
+<FriendsRequestsScreen>:
+    ResyView:
+

@@ -1,0 +1,27 @@
+<Search>:
+    pfp:pfp
+    on_press: root.show_profile()
+    ImageLeftWidget:
+        id: pfp
+<RViewContainer>:
+
+<RView>:
+    viewclass: "Search"
+    RViewContainer:
+        spacing: 10
+        default_size: None, dp(56)
+        default_size_hint: 1, None
+        size_hint_y: None
+        height: self.minimum_height
+        orientation: 'vertical'
+
+<FriendsSearchScreen>:
+    search:search
+    BoxLayout:
+        orientation: 'vertical'
+
+        MDTextField:
+            id: search
+            hint_text: 'Введите имя друга'
+            on_text: root.search_friends()
+        RView:

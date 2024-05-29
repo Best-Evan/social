@@ -1,0 +1,21 @@
+#: import FriendsRequestsScreen views.friends_requests
+#: import FriendsSearchScreen views.friends_search
+#: import FriendsListScreen views.friends_list
+
+<Tab>:
+    MDLabel:
+        pos_hint: {"center_x": .5, "center_y": .5}
+
+<FriendsScreen>:
+    MDTabs:
+        id: tabs
+        on_tab_switch: root.on_tab_switch(*args)
+        Tab:
+            title: 'Ваши друзья'
+            FriendsListScreen:
+        Tab:
+            title: 'Заявки в друзья'
+            FriendsRequestsScreen:
+        Tab:
+            title: 'Поиск друзей'
+            FriendsSearchScreen:

@@ -1,0 +1,47 @@
+<FriendsProfileScreen@Screen>:
+    toolbar:toolbar
+    pfp:pfp
+    #email:email
+    nickname:nickname
+    add_friend:add_friend
+    BoxLayout:
+        orientation: 'vertical'
+        MDToolbar:
+            id: toolbar
+            title: 'Ник'
+            pos_hint: {'y': 0.9}
+            left_action_items: [['arrow-left-drop-circle-outline', lambda x: root.go_back()]]
+        AnchorLayout:
+            anchor_y: 'center'
+            anchor_x: 'center'
+            GridLayout:
+                cols: 1
+                rows: 4
+                size_hint: 1, 0.5
+                Label:
+                    text: 'Ваш никнейм'
+                    id: nickname
+                    size_hint: 1, 0.2
+                    color: 0, 0, 0
+                    bold: True
+                    font_size: 30
+                    halign: 'center'
+                    valign: 'center'
+                BoxLayout:
+                    size_hint: 1, 0.5
+                AsyncImage:
+                    id: pfp
+                    size_hint: 1, 1
+                    halign: 'center'
+                    valign: 'center'
+                AnchorLayout:
+                    anchor_x: 'center'
+                    anchor_y: 'center'
+                    MDFillRoundFlatButton:
+                        text: 'Добавить в друзья'
+                        halign: 'center'
+                        valign: 'center'
+                        pos_hint: {'x': 5}
+                        on_press: root.send_invite()
+                        id: add_friend
+

@@ -1,0 +1,33 @@
+<NewsScreen>:
+    list_view:list_view
+    BoxLayout:
+        ScrollView:
+            MDList:
+                id: list_view
+
+        MDFloatingActionButton:
+            icon: "plus"
+            md_bg_color: app.theme_cls.primary_color
+            on_press:root.show()
+#<Add_Posts_Screen>:
+#    BoxLayout:
+#        MDTextField:
+#            id: add_post_textfield
+#        MDRoundFlatButton:
+#            id: add_post_but
+#        MDRoundFlatButton:
+#            id: back_to_news_but
+#
+<ImageItem>:
+    image: image
+    id: image
+    on_press: root.post_show()
+    text: root.post_text
+    halign: "center"
+    tertiary_text: root.post_tertiary_text
+    post_text: ""
+    post_tertiary_text: ""
+    image_source: ""
+    ImageLeftWidget:
+        source: root.image_source
+

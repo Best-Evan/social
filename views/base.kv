@@ -1,0 +1,31 @@
+#: import NewsScreen views.news.news
+#: import MessagesScreen views.messages
+#: import ProfileScreen views.profile
+#: import FriendsScreen views.friends
+
+<BaseScreen@Screen>:
+    MDBottomNavigation:
+        MDBottomNavigationItem:
+            name: 'news'
+            icon: 'home'
+            text: 'новости'
+            on_tab_press: root.on_tab_press(*args)
+            NewsScreen:
+        MDBottomNavigationItem:
+            name: 'messages'
+            icon: 'message'
+            text: 'сообщения'
+            on_tab_press: root.on_tab_press(*args)
+            MessagesScreen:
+        MDBottomNavigationItem:
+            name: 'friends'
+            icon: 'account-multiple'
+            text: 'друзья'
+            on_tab_press: root.on_tab_press(*args)
+            FriendsScreen:
+        MDBottomNavigationItem:
+            name: 'profile'
+            icon: 'account'
+            text: 'профиль'
+            on_tab_press: root.on_tab_press(*args)
+            ProfileScreen:

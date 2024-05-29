@@ -1,0 +1,38 @@
+<Add_Posts_Screen>:
+    add_post_textfield: add_post_textfield
+    add_post_but: add_post_but
+    back_to_news_but: back_to_news_but
+    AnchorLayout:
+        anchor_x: 'center'
+        anchor_y: 'center'
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: 0.8, 0.5
+            MDTextField:
+                id: add_post_textfield
+                multiline: True
+                size_hint: 1, 0.3
+                hint_text: 'Ваш пост:'
+                mode: 'fill'
+                halign: 'center'
+                valign: 'center'
+            AnchorLayout:
+                anchor_x: 'center'
+                anchor_y: 'center'
+                BoxLayout:
+                    orientation: 'vertical'
+                    size_hint: 0.5, 0.5
+                    MDRoundFlatButton:
+                        id: add_post_but
+                        pos_hint: {'x': -0.5}
+                        text: 'Опубликовть'
+                        size_hint: 2, 0.05
+                        on_press: root.posting()
+                    BoxLayout:
+                        size_hint: 2, 0.005
+                    MDRoundFlatButton:
+                        id: back_to_news_but
+                        pos_hint: {'x': -0.5}
+                        text: 'Назад'
+                        size_hint: 2, 0.05
+                        on_press: root.back_to_news()
